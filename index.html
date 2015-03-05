@@ -22,6 +22,12 @@
     <meta content="WebDriver Extensions is designed to simplify Java based Selenium/WebDriver tests. It's built on top of Selenium/WebDriver to make your tests more readable, reusabable and maintainable by combining the Page Object Pattern and Bot Pattern."
     name="description">
 
+    <!-- HighlightJS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/xcode.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/languages/java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/languages/groovy.min.js"></script>
+
     <!-- Style -->
     <style>
         @media (min-width: 768px) {
@@ -46,7 +52,10 @@
     <!-- Initializer -->
     <script>
         Flatdoc.run({
-            fetcher: Flatdoc.github('webdriverextensions/webdriverextensions')
+            fetcher: Flatdoc.github('webdriverextensions/webdriverextensions'),
+            highlight: function(code, lang) {
+                return hljs.highlight(lang, code).value;
+            }
         });
         $(document).on('flatdoc:ready', function() {
             $('.content p br').parent().remove();
